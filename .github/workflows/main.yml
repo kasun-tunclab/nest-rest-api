@@ -33,3 +33,9 @@ jobs:
         
       - name: Unit Test
         run: yarn test
+
+      - name: Test Coverage
+        run: yarn run test:cov
+
+      - name: End to end Test
+        run: yarn run test:e2e
