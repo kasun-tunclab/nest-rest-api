@@ -83,5 +83,5 @@ jobs:
           ECR_REPOSITORY: nest-rest-api
           IMAGE_TAG: latest
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$new_tag .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$version .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$version
