@@ -59,6 +59,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Bump Version
+        id: semver
         uses: paulhatch/semantic-version@v4.0.2
         with:
           # The prefix to use to identify tags
@@ -81,7 +82,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: nest-rest-api
-          IMAGE_TAG: $version
+          IMAGE_TAG: ${{ steps.semver.outputs.version }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
