@@ -2,12 +2,10 @@ FROM node:16.13.1-alpine3.14
 
 WORKDIR /workspace
 
-COPY package.json yarn.lock /workspace/
+COPY dist bin
 
-RUN yarn
+COPY node_modules node_modules
 
-COPY . .
+RUN ls
 
-RUN yarn build
-
-CMD ["yarn", "start:prod"]
+CMD ["node", "bin/main"]
