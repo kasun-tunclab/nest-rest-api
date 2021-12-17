@@ -15,22 +15,35 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  # This workflow contains jobs called "build", "dockerise"
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::102752706570:role/NestRestPipelineRole
+          role-session-name: workflow-session
+          aws-region: us-east-2
 
       - name: Install Dependencies
         run: yarn install
 
       - name: Build
         run: yarn run build
-        
+
       - name: Unit Test
         run: yarn test
 
@@ -39,3 +52,26 @@ jobs:
 
       - name: End to end Test
         run: yarn run test:e2e
+
+      - name: End to end Test
+        run: yarn run test:e2e
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+
+
+      - name: Dockerize & Push
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: nest-rest-api
+          IMAGE_TAG: ${{ steps.semver.outputs.version }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
