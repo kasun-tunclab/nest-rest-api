@@ -25,10 +25,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - run: git fetch --prune --unshallow
+        with:
+          fetch-depth: '0'
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -42,7 +43,7 @@ jobs:
 
       - name: Build
         run: yarn run build
-        
+
       - name: Unit Test
         run: yarn test
 
@@ -59,24 +60,11 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Bump Version
-        id: semver
-        uses: paulhatch/semantic-version@v4.0.2
-        with:
-          # The prefix to use to identify tags
-          tag_prefix: "v"
-          # A string which, if present in a git commit, indicates that a change represents a
-          # major (breaking) change, supports regular expressions wrapped with '/'
-          major_pattern: "feat:"
-          # Same as above except indicating a minor change, supports regular expressions wrapped with '/'
-          minor_pattern: "fix:"
-          # A string to determine the format of the version output
-          format: "${major}.${minor}.${patch}"
-          # Indicate whether short tags like 'v1' should be supported. If false only full
-          # tags like 'v1.0.0' will be recognized.
-          short_tags: true
-          # If this is set to true, *every* commit will be treated as a new version.
-          bump_each_commit: false
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
 
 
       - name: Dockerize & Push
