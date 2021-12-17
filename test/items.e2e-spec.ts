@@ -21,7 +21,7 @@ describe('Items API (e2e)', () => {
     it('Should get all items',  () => {
 
         return request(app.getHttpServer())
-            .get('/items')
+            .get('/v1/items')
             .expect(200);
     });
 });
