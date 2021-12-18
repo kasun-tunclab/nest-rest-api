@@ -1,0 +1,20 @@
+{
+  "version": "15.0.0",
+  "files": {
+    "54988eb232b7e1d4afef5388fcb2c9c4f21101d6dde90861b6795845e562ae7d": {
+      "source": {
+        "path": "NestRestInfraStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "102752706570-us-east-2": {
+          "bucketName": "cdk-hnb659fds-assets-102752706570-us-east-2",
+          "objectKey": "54988eb232b7e1d4afef5388fcb2c9c4f21101d6dde90861b6795845e562ae7d.json",
+          "region": "us-east-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::102752706570:role/cdk-hnb659fds-file-publishing-role-102752706570-us-east-2"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

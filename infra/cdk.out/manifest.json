@@ -1,0 +1,227 @@
+{
+  "version": "15.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "NestRestInfraStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "NestRestInfraStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "NestRestInfraStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://102752706570/us-east-2",
+      "properties": {
+        "templateFile": "NestRestInfraStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::102752706570:role/cdk-hnb659fds-deploy-role-102752706570-us-east-2",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::102752706570:role/cdk-hnb659fds-cfn-exec-role-102752706570-us-east-2",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-102752706570-us-east-2/54988eb232b7e1d4afef5388fcb2c9c4f21101d6dde90861b6795845e562ae7d.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "NestRestInfraStack.assets"
+        ]
+      },
+      "dependencies": [
+        "NestRestInfraStack.assets"
+      ],
+      "metadata": {
+        "/NestRestInfraStack/AppVpc/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppVpc80F1F7F9"
+          }
+        ],
+        "/NestRestInfraStack/AppVpc/DMZSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppVpcDMZSubnet1SubnetFABDE5AC"
+          }
+        ],
+        "/NestRestInfraStack/AppVpc/DMZSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppVpcDMZSubnet1RouteTable6D5B230E"
+          }
+        ],
+        "/NestRestInfraStack/AppVpc/DMZSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppVpcDMZSubnet1RouteTableAssociationE737622C"
+          }
+        ],
+        "/NestRestInfraStack/AppVpc/DMZSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppVpcDMZSubnet1DefaultRoute36DDD450"
+          }
+        ],
+        "/NestRestInfraStack/AppVpc/DMZSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppVpcDMZSubnet2SubnetC57A9655"
+          }
+        ],
+        "/NestRestInfraStack/AppVpc/DMZSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppVpcDMZSubnet2RouteTable6CFDD681"
+          }
+        ],
+        "/NestRestInfraStack/AppVpc/DMZSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppVpcDMZSubnet2RouteTableAssociationE90B3BCC"
+          }
+        ],
+        "/NestRestInfraStack/AppVpc/DMZSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppVpcDMZSubnet2DefaultRouteAE5EFF32"
+          }
+        ],
+        "/NestRestInfraStack/AppVpc/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppVpcIGW826A76F0"
+          }
+        ],
+        "/NestRestInfraStack/AppVpc/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppVpcVPCGW1D33210A"
+          }
+        ],
+        "/NestRestInfraStack/AppCluster/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppCluster99B78AC1"
+          }
+        ],
+        "/NestRestInfraStack/ApiRepository/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiRepositoryB8378B43"
+          }
+        ],
+        "/NestRestInfraStack/api-service/LB/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceLBB085CC0A"
+          }
+        ],
+        "/NestRestInfraStack/api-service/LB/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceLBSecurityGroup6F0EEE03"
+          }
+        ],
+        "/NestRestInfraStack/api-service/LB/SecurityGroup/to NestRestInfraStackapiserviceServiceSecurityGroupE8DF80BB:80": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceLBSecurityGrouptoNestRestInfraStackapiserviceServiceSecurityGroupE8DF80BB80B988ACEE"
+          }
+        ],
+        "/NestRestInfraStack/api-service/LB/PublicListener/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceLBPublicListener94DE5E2F"
+          }
+        ],
+        "/NestRestInfraStack/api-service/LB/PublicListener/ECSGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceLBPublicListenerECSGroupB0AD63FB"
+          }
+        ],
+        "/NestRestInfraStack/api-service/LoadBalancerDNS": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceLoadBalancerDNS0F8683E6"
+          }
+        ],
+        "/NestRestInfraStack/api-service/ServiceURL": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceServiceURLFF1A3D0C"
+          }
+        ],
+        "/NestRestInfraStack/api-service/TaskDef/TaskRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceTaskDefTaskRoleCD114C81"
+          }
+        ],
+        "/NestRestInfraStack/api-service/TaskDef/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceTaskDefEC88953D"
+          }
+        ],
+        "/NestRestInfraStack/api-service/TaskDef/web/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceTaskDefwebLogGroupD0D7E978"
+          }
+        ],
+        "/NestRestInfraStack/api-service/TaskDef/ExecutionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceTaskDefExecutionRole978B01AE"
+          }
+        ],
+        "/NestRestInfraStack/api-service/TaskDef/ExecutionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceTaskDefExecutionRoleDefaultPolicyF409FB89"
+          }
+        ],
+        "/NestRestInfraStack/api-service/Service/Service": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceServiceBBA6BC94"
+          }
+        ],
+        "/NestRestInfraStack/api-service/Service/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceServiceSecurityGroupCC6B223C"
+          }
+        ],
+        "/NestRestInfraStack/api-service/Service/SecurityGroup/from NestRestInfraStackapiserviceLBSecurityGroup89028FF7:80": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiserviceServiceSecurityGroupfromNestRestInfraStackapiserviceLBSecurityGroup89028FF78027A363C9"
+          }
+        ],
+        "/NestRestInfraStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/NestRestInfraStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/NestRestInfraStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "NestRestInfraStack"
+    }
+  }
+}
