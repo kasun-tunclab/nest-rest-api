@@ -1,10 +1,10 @@
 {
   "name": "nest-rest-api",
   "version": "0.0.1",
-  "description": "",
+  "description": "PoC project to learn nestjs framework and github actions",
   "author": "",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",

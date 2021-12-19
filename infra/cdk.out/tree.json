@@ -12,17 +12,17 @@
           "version": "10.0.12"
         }
       },
-      "NestRestInfraStack": {
-        "id": "NestRestInfraStack",
-        "path": "NestRestInfraStack",
+      "NetworkInfraStack": {
+        "id": "NetworkInfraStack",
+        "path": "NetworkInfraStack",
         "children": {
           "AppVpc": {
             "id": "AppVpc",
-            "path": "NestRestInfraStack/AppVpc",
+            "path": "NetworkInfraStack/AppVpc",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "NestRestInfraStack/AppVpc/Resource",
+                "path": "NetworkInfraStack/AppVpc/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::VPC",
                   "aws:cdk:cloudformation:props": {
@@ -33,7 +33,7 @@
                     "tags": [
                       {
                         "key": "Name",
-                        "value": "NestRestInfraStack/AppVpc"
+                        "value": "NetworkInfraStack/AppVpc"
                       }
                     ]
                   }
@@ -45,11 +45,11 @@
               },
               "DMZSubnet1": {
                 "id": "DMZSubnet1",
-                "path": "NestRestInfraStack/AppVpc/DMZSubnet1",
+                "path": "NetworkInfraStack/AppVpc/DMZSubnet1",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "NestRestInfraStack/AppVpc/DMZSubnet1/Subnet",
+                    "path": "NetworkInfraStack/AppVpc/DMZSubnet1/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -70,7 +70,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "NestRestInfraStack/AppVpc/DMZSubnet1"
+                            "value": "NetworkInfraStack/AppVpc/DMZSubnet1"
                           }
                         ]
                       }
@@ -82,7 +82,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "NestRestInfraStack/AppVpc/DMZSubnet1/Acl",
+                    "path": "NetworkInfraStack/AppVpc/DMZSubnet1/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.0.0"
@@ -90,7 +90,7 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "NestRestInfraStack/AppVpc/DMZSubnet1/RouteTable",
+                    "path": "NetworkInfraStack/AppVpc/DMZSubnet1/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
@@ -100,7 +100,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "NestRestInfraStack/AppVpc/DMZSubnet1"
+                            "value": "NetworkInfraStack/AppVpc/DMZSubnet1"
                           }
                         ]
                       }
@@ -112,7 +112,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "NestRestInfraStack/AppVpc/DMZSubnet1/RouteTableAssociation",
+                    "path": "NetworkInfraStack/AppVpc/DMZSubnet1/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -131,7 +131,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "NestRestInfraStack/AppVpc/DMZSubnet1/DefaultRoute",
+                    "path": "NetworkInfraStack/AppVpc/DMZSubnet1/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -157,11 +157,11 @@
               },
               "DMZSubnet2": {
                 "id": "DMZSubnet2",
-                "path": "NestRestInfraStack/AppVpc/DMZSubnet2",
+                "path": "NetworkInfraStack/AppVpc/DMZSubnet2",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "NestRestInfraStack/AppVpc/DMZSubnet2/Subnet",
+                    "path": "NetworkInfraStack/AppVpc/DMZSubnet2/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -182,7 +182,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "NestRestInfraStack/AppVpc/DMZSubnet2"
+                            "value": "NetworkInfraStack/AppVpc/DMZSubnet2"
                           }
                         ]
                       }
@@ -194,7 +194,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "NestRestInfraStack/AppVpc/DMZSubnet2/Acl",
+                    "path": "NetworkInfraStack/AppVpc/DMZSubnet2/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.0.0"
@@ -202,7 +202,7 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "NestRestInfraStack/AppVpc/DMZSubnet2/RouteTable",
+                    "path": "NetworkInfraStack/AppVpc/DMZSubnet2/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
@@ -212,7 +212,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "NestRestInfraStack/AppVpc/DMZSubnet2"
+                            "value": "NetworkInfraStack/AppVpc/DMZSubnet2"
                           }
                         ]
                       }
@@ -224,7 +224,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "NestRestInfraStack/AppVpc/DMZSubnet2/RouteTableAssociation",
+                    "path": "NetworkInfraStack/AppVpc/DMZSubnet2/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -243,7 +243,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "NestRestInfraStack/AppVpc/DMZSubnet2/DefaultRoute",
+                    "path": "NetworkInfraStack/AppVpc/DMZSubnet2/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -269,14 +269,14 @@
               },
               "IGW": {
                 "id": "IGW",
-                "path": "NestRestInfraStack/AppVpc/IGW",
+                "path": "NetworkInfraStack/AppVpc/IGW",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::InternetGateway",
                   "aws:cdk:cloudformation:props": {
                     "tags": [
                       {
                         "key": "Name",
-                        "value": "NestRestInfraStack/AppVpc"
+                        "value": "NetworkInfraStack/AppVpc"
                       }
                     ]
                   }
@@ -288,7 +288,7 @@
               },
               "VPCGW": {
                 "id": "VPCGW",
-                "path": "NestRestInfraStack/AppVpc/VPCGW",
+                "path": "NetworkInfraStack/AppVpc/VPCGW",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::VPCGatewayAttachment",
                   "aws:cdk:cloudformation:props": {
@@ -313,11 +313,11 @@
           },
           "AppCluster": {
             "id": "AppCluster",
-            "path": "NestRestInfraStack/AppCluster",
+            "path": "NetworkInfraStack/AppCluster",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "NestRestInfraStack/AppCluster/Resource",
+                "path": "NetworkInfraStack/AppCluster/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ECS::Cluster",
                   "aws:cdk:cloudformation:props": {
@@ -337,11 +337,11 @@
           },
           "ApiRepository": {
             "id": "ApiRepository",
-            "path": "NestRestInfraStack/ApiRepository",
+            "path": "NetworkInfraStack/ApiRepository",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "NestRestInfraStack/ApiRepository/Resource",
+                "path": "NetworkInfraStack/ApiRepository/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ECR::Repository",
                   "aws:cdk:cloudformation:props": {
@@ -359,17 +359,339 @@
               "version": "2.0.0"
             }
           },
-          "api-service": {
-            "id": "api-service",
-            "path": "NestRestInfraStack/api-service",
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "NetworkInfraStack/CDKMetadata",
             "children": {
-              "LB": {
-                "id": "LB",
-                "path": "NestRestInfraStack/api-service/LB",
+              "Default": {
+                "id": "Default",
+                "path": "NetworkInfraStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.0.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.0.12"
+            }
+          },
+          "Exports": {
+            "id": "Exports",
+            "path": "NetworkInfraStack/Exports",
+            "children": {
+              "Output{\"Fn::GetAtt\":[\"ApiRepositoryB8378B43\",\"Arn\"]}": {
+                "id": "Output{\"Fn::GetAtt\":[\"ApiRepositoryB8378B43\",\"Arn\"]}",
+                "path": "NetworkInfraStack/Exports/Output{\"Fn::GetAtt\":[\"ApiRepositoryB8378B43\",\"Arn\"]}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.0.0"
+                }
+              },
+              "Output{\"Ref\":\"ApiRepositoryB8378B43\"}": {
+                "id": "Output{\"Ref\":\"ApiRepositoryB8378B43\"}",
+                "path": "NetworkInfraStack/Exports/Output{\"Ref\":\"ApiRepositoryB8378B43\"}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.0.0"
+                }
+              },
+              "Output{\"Ref\":\"AppVpcDMZSubnet1SubnetFABDE5AC\"}": {
+                "id": "Output{\"Ref\":\"AppVpcDMZSubnet1SubnetFABDE5AC\"}",
+                "path": "NetworkInfraStack/Exports/Output{\"Ref\":\"AppVpcDMZSubnet1SubnetFABDE5AC\"}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.0.0"
+                }
+              },
+              "Output{\"Ref\":\"AppVpcDMZSubnet2SubnetC57A9655\"}": {
+                "id": "Output{\"Ref\":\"AppVpcDMZSubnet2SubnetC57A9655\"}",
+                "path": "NetworkInfraStack/Exports/Output{\"Ref\":\"AppVpcDMZSubnet2SubnetC57A9655\"}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.0.0"
+                }
+              },
+              "Output{\"Ref\":\"AppVpc80F1F7F9\"}": {
+                "id": "Output{\"Ref\":\"AppVpc80F1F7F9\"}",
+                "path": "NetworkInfraStack/Exports/Output{\"Ref\":\"AppVpc80F1F7F9\"}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.0.0"
+                }
+              },
+              "Output{\"Ref\":\"AppCluster99B78AC1\"}": {
+                "id": "Output{\"Ref\":\"AppCluster99B78AC1\"}",
+                "path": "NetworkInfraStack/Exports/Output{\"Ref\":\"AppCluster99B78AC1\"}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.0.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.0.12"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.0.0"
+        }
+      },
+      "ApiInfraStack": {
+        "id": "ApiInfraStack",
+        "path": "ApiInfraStack",
+        "children": {
+          "ApiTaskDef": {
+            "id": "ApiTaskDef",
+            "path": "ApiInfraStack/ApiTaskDef",
+            "children": {
+              "TaskRole": {
+                "id": "TaskRole",
+                "path": "ApiInfraStack/ApiTaskDef/TaskRole",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "NestRestInfraStack/api-service/LB/Resource",
+                    "path": "ApiInfraStack/ApiTaskDef/TaskRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "ecs-tasks.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.0.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.0.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "ApiInfraStack/ApiTaskDef/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ECS::TaskDefinition",
+                  "aws:cdk:cloudformation:props": {
+                    "containerDefinitions": [
+                      {
+                        "essential": true,
+                        "image": {
+                          "Fn::Join": [
+                            "",
+                            [
+                              {
+                                "Fn::Select": [
+                                  4,
+                                  {
+                                    "Fn::Split": [
+                                      ":",
+                                      {
+                                        "Fn::ImportValue": "NetworkInfraStack:ExportsOutputFnGetAttApiRepositoryB8378B43ArnC5B66F61"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              ".dkr.ecr.",
+                              {
+                                "Fn::Select": [
+                                  3,
+                                  {
+                                    "Fn::Split": [
+                                      ":",
+                                      {
+                                        "Fn::ImportValue": "NetworkInfraStack:ExportsOutputFnGetAttApiRepositoryB8378B43ArnC5B66F61"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              ".",
+                              {
+                                "Ref": "AWS::URLSuffix"
+                              },
+                              "/",
+                              {
+                                "Fn::ImportValue": "NetworkInfraStack:ExportsOutputRefApiRepositoryB8378B43D566CA3C"
+                              },
+                              ":v1.1.0"
+                            ]
+                          ]
+                        },
+                        "name": "api",
+                        "portMappings": [
+                          {
+                            "containerPort": 3000,
+                            "protocol": "tcp"
+                          }
+                        ]
+                      }
+                    ],
+                    "cpu": "256",
+                    "executionRoleArn": {
+                      "Fn::GetAtt": [
+                        "ApiTaskDefExecutionRoleE6ABB053",
+                        "Arn"
+                      ]
+                    },
+                    "family": "nest-api",
+                    "memory": "512",
+                    "networkMode": "awsvpc",
+                    "requiresCompatibilities": [
+                      "FARGATE"
+                    ],
+                    "taskRoleArn": {
+                      "Fn::GetAtt": [
+                        "ApiTaskDefTaskRole76FB19FA",
+                        "Arn"
+                      ]
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_ecs.CfnTaskDefinition",
+                  "version": "2.0.0"
+                }
+              },
+              "api-image": {
+                "id": "api-image",
+                "path": "ApiInfraStack/ApiTaskDef/api-image",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_ecs.ContainerDefinition",
+                  "version": "2.0.0"
+                }
+              },
+              "ExecutionRole": {
+                "id": "ExecutionRole",
+                "path": "ApiInfraStack/ApiTaskDef/ExecutionRole",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "ApiInfraStack/ApiTaskDef/ExecutionRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "ecs-tasks.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.0.0"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "ApiInfraStack/ApiTaskDef/ExecutionRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "ApiInfraStack/ApiTaskDef/ExecutionRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "ecr:BatchCheckLayerAvailability",
+                                    "ecr:GetDownloadUrlForLayer",
+                                    "ecr:BatchGetImage"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Fn::ImportValue": "NetworkInfraStack:ExportsOutputFnGetAttApiRepositoryB8378B43ArnC5B66F61"
+                                  }
+                                },
+                                {
+                                  "Action": "ecr:GetAuthorizationToken",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "ApiTaskDefExecutionRoleDefaultPolicy358EAD94",
+                            "roles": [
+                              {
+                                "Ref": "ApiTaskDefExecutionRoleE6ABB053"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.0.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.0.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.0.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_ecs.FargateTaskDefinition",
+              "version": "2.0.0"
+            }
+          },
+          "task-exec-policy": {
+            "id": "task-exec-policy",
+            "path": "ApiInfraStack/task-exec-policy",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.0.0"
+            }
+          },
+          "ApiService": {
+            "id": "ApiService",
+            "path": "ApiInfraStack/ApiService",
+            "children": {
+              "LB": {
+                "id": "LB",
+                "path": "ApiInfraStack/ApiService/LB",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "ApiInfraStack/ApiService/LB/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
                       "aws:cdk:cloudformation:props": {
@@ -383,17 +705,17 @@
                         "securityGroups": [
                           {
                             "Fn::GetAtt": [
-                              "apiserviceLBSecurityGroup6F0EEE03",
+                              "ApiServiceLBSecurityGroup5C16BEF8",
                               "GroupId"
                             ]
                           }
                         ],
                         "subnets": [
                           {
-                            "Ref": "AppVpcDMZSubnet1SubnetFABDE5AC"
+                            "Fn::ImportValue": "NetworkInfraStack:ExportsOutputRefAppVpcDMZSubnet1SubnetFABDE5ACEDDE4DB7"
                           },
                           {
-                            "Ref": "AppVpcDMZSubnet2SubnetC57A9655"
+                            "Fn::ImportValue": "NetworkInfraStack:ExportsOutputRefAppVpcDMZSubnet2SubnetC57A9655FA4E5A49"
                           }
                         ],
                         "type": "application"
@@ -406,15 +728,15 @@
                   },
                   "SecurityGroup": {
                     "id": "SecurityGroup",
-                    "path": "NestRestInfraStack/api-service/LB/SecurityGroup",
+                    "path": "ApiInfraStack/ApiService/LB/SecurityGroup",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "NestRestInfraStack/api-service/LB/SecurityGroup/Resource",
+                        "path": "ApiInfraStack/ApiService/LB/SecurityGroup/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
                           "aws:cdk:cloudformation:props": {
-                            "groupDescription": "Automatically created Security Group for ELB NestRestInfraStackapiserviceLB1883F75F",
+                            "groupDescription": "Automatically created Security Group for ELB ApiInfraStackApiServiceLBF24C68F5",
                             "securityGroupIngress": [
                               {
                                 "cidrIp": "0.0.0.0/0",
@@ -425,7 +747,7 @@
                               }
                             ],
                             "vpcId": {
-                              "Ref": "AppVpc80F1F7F9"
+                              "Fn::ImportValue": "NetworkInfraStack:ExportsOutputRefAppVpc80F1F7F93D0AA00C"
                             }
                           }
                         },
@@ -434,15 +756,15 @@
                           "version": "2.0.0"
                         }
                       },
-                      "to NestRestInfraStackapiserviceServiceSecurityGroupE8DF80BB:80": {
-                        "id": "to NestRestInfraStackapiserviceServiceSecurityGroupE8DF80BB:80",
-                        "path": "NestRestInfraStack/api-service/LB/SecurityGroup/to NestRestInfraStackapiserviceServiceSecurityGroupE8DF80BB:80",
+                      "to ApiInfraStackApiServiceSecurityGroupEEA09021:3000": {
+                        "id": "to ApiInfraStackApiServiceSecurityGroupEEA09021:3000",
+                        "path": "ApiInfraStack/ApiService/LB/SecurityGroup/to ApiInfraStackApiServiceSecurityGroupEEA09021:3000",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupEgress",
                           "aws:cdk:cloudformation:props": {
                             "groupId": {
                               "Fn::GetAtt": [
-                                "apiserviceLBSecurityGroup6F0EEE03",
+                                "ApiServiceLBSecurityGroup5C16BEF8",
                                 "GroupId"
                               ]
                             },
@@ -450,12 +772,12 @@
                             "description": "Load balancer to target",
                             "destinationSecurityGroupId": {
                               "Fn::GetAtt": [
-                                "apiserviceServiceSecurityGroupCC6B223C",
+                                "ApiServiceSecurityGroup2592096B",
                                 "GroupId"
                               ]
                             },
-                            "fromPort": 80,
-                            "toPort": 80
+                            "fromPort": 3000,
+                            "toPort": 3000
                           }
                         },
                         "constructInfo": {
@@ -471,11 +793,11 @@
                   },
                   "PublicListener": {
                     "id": "PublicListener",
-                    "path": "NestRestInfraStack/api-service/LB/PublicListener",
+                    "path": "ApiInfraStack/ApiService/LB/PublicListener",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "NestRestInfraStack/api-service/LB/PublicListener/Resource",
+                        "path": "ApiInfraStack/ApiService/LB/PublicListener/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::Listener",
                           "aws:cdk:cloudformation:props": {
@@ -483,12 +805,12 @@
                               {
                                 "type": "forward",
                                 "targetGroupArn": {
-                                  "Ref": "apiserviceLBPublicListenerECSGroupB0AD63FB"
+                                  "Ref": "ApiServiceLBPublicListenerECSGroup14A87FE9"
                                 }
                               }
                             ],
                             "loadBalancerArn": {
-                              "Ref": "apiserviceLBB085CC0A"
+                              "Ref": "ApiServiceLB08B891CD"
                             },
                             "port": 80,
                             "protocol": "HTTP"
@@ -501,11 +823,11 @@
                       },
                       "ECSGroup": {
                         "id": "ECSGroup",
-                        "path": "NestRestInfraStack/api-service/LB/PublicListener/ECSGroup",
+                        "path": "ApiInfraStack/ApiService/LB/PublicListener/ECSGroup",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "NestRestInfraStack/api-service/LB/PublicListener/ECSGroup/Resource",
+                            "path": "ApiInfraStack/ApiService/LB/PublicListener/ECSGroup/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::TargetGroup",
                               "aws:cdk:cloudformation:props": {
@@ -519,7 +841,7 @@
                                 ],
                                 "targetType": "ip",
                                 "vpcId": {
-                                  "Ref": "AppVpc80F1F7F9"
+                                  "Fn::ImportValue": "NetworkInfraStack:ExportsOutputRefAppVpc80F1F7F93D0AA00C"
                                 }
                               }
                             },
@@ -548,7 +870,7 @@
               },
               "LoadBalancerDNS": {
                 "id": "LoadBalancerDNS",
-                "path": "NestRestInfraStack/api-service/LoadBalancerDNS",
+                "path": "ApiInfraStack/ApiService/LoadBalancerDNS",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnOutput",
                   "version": "2.0.0"
@@ -556,305 +878,24 @@
               },
               "ServiceURL": {
                 "id": "ServiceURL",
-                "path": "NestRestInfraStack/api-service/ServiceURL",
+                "path": "ApiInfraStack/ApiService/ServiceURL",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnOutput",
                   "version": "2.0.0"
                 }
               },
-              "TaskDef": {
-                "id": "TaskDef",
-                "path": "NestRestInfraStack/api-service/TaskDef",
-                "children": {
-                  "TaskRole": {
-                    "id": "TaskRole",
-                    "path": "NestRestInfraStack/api-service/TaskDef/TaskRole",
-                    "children": {
-                      "Resource": {
-                        "id": "Resource",
-                        "path": "NestRestInfraStack/api-service/TaskDef/TaskRole/Resource",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
-                          "aws:cdk:cloudformation:props": {
-                            "assumeRolePolicyDocument": {
-                              "Statement": [
-                                {
-                                  "Action": "sts:AssumeRole",
-                                  "Effect": "Allow",
-                                  "Principal": {
-                                    "Service": "ecs-tasks.amazonaws.com"
-                                  }
-                                }
-                              ],
-                              "Version": "2012-10-17"
-                            }
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
-                          "version": "2.0.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.Role",
-                      "version": "2.0.0"
-                    }
-                  },
-                  "Resource": {
-                    "id": "Resource",
-                    "path": "NestRestInfraStack/api-service/TaskDef/Resource",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::ECS::TaskDefinition",
-                      "aws:cdk:cloudformation:props": {
-                        "containerDefinitions": [
-                          {
-                            "essential": true,
-                            "image": {
-                              "Fn::Join": [
-                                "",
-                                [
-                                  {
-                                    "Fn::Select": [
-                                      4,
-                                      {
-                                        "Fn::Split": [
-                                          ":",
-                                          {
-                                            "Fn::GetAtt": [
-                                              "ApiRepositoryB8378B43",
-                                              "Arn"
-                                            ]
-                                          }
-                                        ]
-                                      }
-                                    ]
-                                  },
-                                  ".dkr.ecr.",
-                                  {
-                                    "Fn::Select": [
-                                      3,
-                                      {
-                                        "Fn::Split": [
-                                          ":",
-                                          {
-                                            "Fn::GetAtt": [
-                                              "ApiRepositoryB8378B43",
-                                              "Arn"
-                                            ]
-                                          }
-                                        ]
-                                      }
-                                    ]
-                                  },
-                                  ".",
-                                  {
-                                    "Ref": "AWS::URLSuffix"
-                                  },
-                                  "/",
-                                  {
-                                    "Ref": "ApiRepositoryB8378B43"
-                                  },
-                                  ":v1.1.0"
-                                ]
-                              ]
-                            },
-                            "name": "web",
-                            "portMappings": [
-                              {
-                                "containerPort": 80,
-                                "protocol": "tcp"
-                              }
-                            ],
-                            "logConfiguration": {
-                              "logDriver": "awslogs",
-                              "options": {
-                                "awslogs-group": {
-                                  "Ref": "apiserviceTaskDefwebLogGroupD0D7E978"
-                                },
-                                "awslogs-stream-prefix": "api-service",
-                                "awslogs-region": "us-east-2"
-                              }
-                            }
-                          }
-                        ],
-                        "cpu": "256",
-                        "executionRoleArn": {
-                          "Fn::GetAtt": [
-                            "apiserviceTaskDefExecutionRole978B01AE",
-                            "Arn"
-                          ]
-                        },
-                        "family": "NestRestInfraStackapiserviceTaskDef9F6BC813",
-                        "memory": "512",
-                        "networkMode": "awsvpc",
-                        "requiresCompatibilities": [
-                          "FARGATE"
-                        ],
-                        "taskRoleArn": {
-                          "Fn::GetAtt": [
-                            "apiserviceTaskDefTaskRoleCD114C81",
-                            "Arn"
-                          ]
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_ecs.CfnTaskDefinition",
-                      "version": "2.0.0"
-                    }
-                  },
-                  "web": {
-                    "id": "web",
-                    "path": "NestRestInfraStack/api-service/TaskDef/web",
-                    "children": {
-                      "LogGroup": {
-                        "id": "LogGroup",
-                        "path": "NestRestInfraStack/api-service/TaskDef/web/LogGroup",
-                        "children": {
-                          "Resource": {
-                            "id": "Resource",
-                            "path": "NestRestInfraStack/api-service/TaskDef/web/LogGroup/Resource",
-                            "attributes": {
-                              "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
-                              "aws:cdk:cloudformation:props": {}
-                            },
-                            "constructInfo": {
-                              "fqn": "aws-cdk-lib.aws_logs.CfnLogGroup",
-                              "version": "2.0.0"
-                            }
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_logs.LogGroup",
-                          "version": "2.0.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_ecs.ContainerDefinition",
-                      "version": "2.0.0"
-                    }
-                  },
-                  "ExecutionRole": {
-                    "id": "ExecutionRole",
-                    "path": "NestRestInfraStack/api-service/TaskDef/ExecutionRole",
-                    "children": {
-                      "Resource": {
-                        "id": "Resource",
-                        "path": "NestRestInfraStack/api-service/TaskDef/ExecutionRole/Resource",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
-                          "aws:cdk:cloudformation:props": {
-                            "assumeRolePolicyDocument": {
-                              "Statement": [
-                                {
-                                  "Action": "sts:AssumeRole",
-                                  "Effect": "Allow",
-                                  "Principal": {
-                                    "Service": "ecs-tasks.amazonaws.com"
-                                  }
-                                }
-                              ],
-                              "Version": "2012-10-17"
-                            }
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
-                          "version": "2.0.0"
-                        }
-                      },
-                      "DefaultPolicy": {
-                        "id": "DefaultPolicy",
-                        "path": "NestRestInfraStack/api-service/TaskDef/ExecutionRole/DefaultPolicy",
-                        "children": {
-                          "Resource": {
-                            "id": "Resource",
-                            "path": "NestRestInfraStack/api-service/TaskDef/ExecutionRole/DefaultPolicy/Resource",
-                            "attributes": {
-                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
-                              "aws:cdk:cloudformation:props": {
-                                "policyDocument": {
-                                  "Statement": [
-                                    {
-                                      "Action": [
-                                        "ecr:BatchCheckLayerAvailability",
-                                        "ecr:GetDownloadUrlForLayer",
-                                        "ecr:BatchGetImage"
-                                      ],
-                                      "Effect": "Allow",
-                                      "Resource": {
-                                        "Fn::GetAtt": [
-                                          "ApiRepositoryB8378B43",
-                                          "Arn"
-                                        ]
-                                      }
-                                    },
-                                    {
-                                      "Action": "ecr:GetAuthorizationToken",
-                                      "Effect": "Allow",
-                                      "Resource": "*"
-                                    },
-                                    {
-                                      "Action": [
-                                        "logs:CreateLogStream",
-                                        "logs:PutLogEvents"
-                                      ],
-                                      "Effect": "Allow",
-                                      "Resource": {
-                                        "Fn::GetAtt": [
-                                          "apiserviceTaskDefwebLogGroupD0D7E978",
-                                          "Arn"
-                                        ]
-                                      }
-                                    }
-                                  ],
-                                  "Version": "2012-10-17"
-                                },
-                                "policyName": "apiserviceTaskDefExecutionRoleDefaultPolicyF409FB89",
-                                "roles": [
-                                  {
-                                    "Ref": "apiserviceTaskDefExecutionRole978B01AE"
-                                  }
-                                ]
-                              }
-                            },
-                            "constructInfo": {
-                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
-                              "version": "2.0.0"
-                            }
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_iam.Policy",
-                          "version": "2.0.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.Role",
-                      "version": "2.0.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_ecs.FargateTaskDefinition",
-                  "version": "2.0.0"
-                }
-              },
               "Service": {
                 "id": "Service",
-                "path": "NestRestInfraStack/api-service/Service",
+                "path": "ApiInfraStack/ApiService/Service",
                 "children": {
                   "Service": {
                     "id": "Service",
-                    "path": "NestRestInfraStack/api-service/Service/Service",
+                    "path": "ApiInfraStack/ApiService/Service/Service",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ECS::Service",
                       "aws:cdk:cloudformation:props": {
                         "cluster": {
-                          "Ref": "AppCluster99B78AC1"
+                          "Fn::ImportValue": "NetworkInfraStack:ExportsOutputRefAppCluster99B78AC16C167476"
                         },
                         "deploymentConfiguration": {
                           "maximumPercent": 200,
@@ -867,35 +908,36 @@
                         "loadBalancers": [
                           {
                             "targetGroupArn": {
-                              "Ref": "apiserviceLBPublicListenerECSGroupB0AD63FB"
+                              "Ref": "ApiServiceLBPublicListenerECSGroup14A87FE9"
                             },
-                            "containerName": "web",
-                            "containerPort": 80
+                            "containerName": "api",
+                            "containerPort": 3000
                           }
                         ],
                         "networkConfiguration": {
                           "awsvpcConfiguration": {
-                            "assignPublicIp": "DISABLED",
+                            "assignPublicIp": "ENABLED",
                             "subnets": [
                               {
-                                "Ref": "AppVpcDMZSubnet1SubnetFABDE5AC"
+                                "Fn::ImportValue": "NetworkInfraStack:ExportsOutputRefAppVpcDMZSubnet1SubnetFABDE5ACEDDE4DB7"
                               },
                               {
-                                "Ref": "AppVpcDMZSubnet2SubnetC57A9655"
+                                "Fn::ImportValue": "NetworkInfraStack:ExportsOutputRefAppVpcDMZSubnet2SubnetC57A9655FA4E5A49"
                               }
                             ],
                             "securityGroups": [
                               {
                                 "Fn::GetAtt": [
-                                  "apiserviceServiceSecurityGroupCC6B223C",
+                                  "ApiServiceSecurityGroup2592096B",
                                   "GroupId"
                                 ]
                               }
                             ]
                           }
                         },
+                        "serviceName": "nest-api-service",
                         "taskDefinition": {
-                          "Ref": "apiserviceTaskDefEC88953D"
+                          "Ref": "ApiTaskDef37DBDBD0"
                         }
                       }
                     },
@@ -906,15 +948,15 @@
                   },
                   "SecurityGroup": {
                     "id": "SecurityGroup",
-                    "path": "NestRestInfraStack/api-service/Service/SecurityGroup",
+                    "path": "ApiInfraStack/ApiService/Service/SecurityGroup",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "NestRestInfraStack/api-service/Service/SecurityGroup/Resource",
+                        "path": "ApiInfraStack/ApiService/Service/SecurityGroup/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
                           "aws:cdk:cloudformation:props": {
-                            "groupDescription": "NestRestInfraStack/api-service/Service/SecurityGroup",
+                            "groupDescription": "ApiInfraStack/ApiService/Service/SecurityGroup",
                             "securityGroupEgress": [
                               {
                                 "cidrIp": "0.0.0.0/0",
@@ -923,7 +965,7 @@
                               }
                             ],
                             "vpcId": {
-                              "Ref": "AppVpc80F1F7F9"
+                              "Fn::ImportValue": "NetworkInfraStack:ExportsOutputRefAppVpc80F1F7F93D0AA00C"
                             }
                           }
                         },
@@ -932,28 +974,28 @@
                           "version": "2.0.0"
                         }
                       },
-                      "from NestRestInfraStackapiserviceLBSecurityGroup89028FF7:80": {
-                        "id": "from NestRestInfraStackapiserviceLBSecurityGroup89028FF7:80",
-                        "path": "NestRestInfraStack/api-service/Service/SecurityGroup/from NestRestInfraStackapiserviceLBSecurityGroup89028FF7:80",
+                      "from ApiInfraStackApiServiceLBSecurityGroupEF201AFE:3000": {
+                        "id": "from ApiInfraStackApiServiceLBSecurityGroupEF201AFE:3000",
+                        "path": "ApiInfraStack/ApiService/Service/SecurityGroup/from ApiInfraStackApiServiceLBSecurityGroupEF201AFE:3000",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
                           "aws:cdk:cloudformation:props": {
                             "ipProtocol": "tcp",
                             "description": "Load balancer to target",
-                            "fromPort": 80,
+                            "fromPort": 3000,
                             "groupId": {
                               "Fn::GetAtt": [
-                                "apiserviceServiceSecurityGroupCC6B223C",
+                                "ApiServiceSecurityGroup2592096B",
                                 "GroupId"
                               ]
                             },
                             "sourceSecurityGroupId": {
                               "Fn::GetAtt": [
-                                "apiserviceLBSecurityGroup6F0EEE03",
+                                "ApiServiceLBSecurityGroup5C16BEF8",
                                 "GroupId"
                               ]
                             },
-                            "toPort": 80
+                            "toPort": 3000
                           }
                         },
                         "constructInfo": {
@@ -981,11 +1023,11 @@
           },
           "CDKMetadata": {
             "id": "CDKMetadata",
-            "path": "NestRestInfraStack/CDKMetadata",
+            "path": "ApiInfraStack/CDKMetadata",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "NestRestInfraStack/CDKMetadata/Default",
+                "path": "ApiInfraStack/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.0.0"
