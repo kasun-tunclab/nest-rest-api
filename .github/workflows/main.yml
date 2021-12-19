@@ -39,7 +39,11 @@ jobs:
           aws-region: us-east-2
 
       - name: Install Dependencies
-        run: yarn install
+        run: |
+          yarn install
+          cd infra
+          yarn install
+          cd ../
 
       - name: Build
         run: yarn run build
@@ -67,7 +71,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
           DEFAULT_BUMP: patch
-
 
       - name: Dockerize & Push
         env:
