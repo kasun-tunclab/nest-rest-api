@@ -4,6 +4,7 @@ import * as pat from "aws-cdk-lib/aws-ecs-patterns";
 import * as iam from "aws-cdk-lib/aws-iam";
 import {Construct} from "constructs";
 import * as ecr from "aws-cdk-lib/aws-ecr";
+import * as logs from "aws-cdk-lib/aws-logs";
 
 export interface NestRestInfraStackProps extends core.StackProps{
   fargateCluster: ecs.Cluster;
@@ -26,7 +27,11 @@ export class ApiInfraStack extends core.Stack {
     taskDefinition.addContainer('api-image', {
       containerName: 'api',
       image: ecs.ContainerImage.fromEcrRepository(props.ecrRepo, props.dockerImageTag),
-      portMappings: [{containerPort: 3000}]
+      portMappings: [{containerPort: 3000}],
+      logging: ecs.LogDriver.awsLogs({
+        streamPrefix: 'api',
+        logRetention: logs.RetentionDays.ONE_WEEK
+      })
     });
 
     const taskExecutionPolicy = iam.ManagedPolicy.fromManagedPolicyArn(this, 'task-exec-policy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy')

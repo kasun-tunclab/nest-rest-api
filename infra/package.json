@@ -12,7 +12,8 @@
     "diff:net": "npx cdk diff NetworkInfraStack",
     "diff:api": "npx cdk diff ApiInfraStack",
     "deploy:net": "npx cdk deploy NetworkInfraStack",
-    "deploy:api": "npx cdk deploy ApiInfraStack"
+    "deploy:api": "npx cdk deploy ApiInfraStack",
+    "destroy:api": "npx cdk destroy ApiInfraStack"
   },
   "devDependencies": {
     "@types/jest": "^26.0.10",
