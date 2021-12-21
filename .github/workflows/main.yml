@@ -80,3 +80,8 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+      - name: Deploy (Sandbox)
+        env:
+          IMAGE_TAG: ${{ steps.semver.outputs.new_tag }}
+        run: yarn deploy:api -c dockerImageTag=$IMAGE_TAG --require-approval never
