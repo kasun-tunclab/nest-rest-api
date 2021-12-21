@@ -37,12 +37,16 @@ export class ApiInfraStack extends core.Stack {
     const taskExecutionPolicy = iam.ManagedPolicy.fromManagedPolicyArn(this, 'task-exec-policy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy')
     taskDefinition.executionRole?.addManagedPolicy(taskExecutionPolicy);
 
-    new pat.ApplicationLoadBalancedFargateService(this, 'ApiService', {
+    const service = new pat.ApplicationLoadBalancedFargateService(this, 'ApiService', {
       serviceName: 'nest-api-service',
       cluster: props.fargateCluster,
       taskDefinition,
       desiredCount: 1,
-      assignPublicIp: true
+      assignPublicIp: true,
+    });
+
+    service.targetGroup.configureHealthCheck({
+      path: '/v1/ping'
     });
 
   }
