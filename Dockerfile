@@ -2,7 +2,7 @@ FROM node:16.13.1-alpine3.14
 
 WORKDIR /workspace
 
-COPY dist bin
+COPY dist/src bin
 
 COPY node_modules node_modules
 
