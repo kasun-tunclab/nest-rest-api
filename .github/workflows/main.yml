@@ -84,4 +84,4 @@ jobs:
       - name: Deploy (Sandbox)
         env:
           IMAGE_TAG: ${{ steps.semver.outputs.new_tag }}
-        run: yarn deploy:api -c dockerImageTag=$IMAGE_TAG --require-approval never
+        run: yarn run deploy:api -c dockerImageTag=$IMAGE_TAG --require-approval never
