@@ -27,7 +27,8 @@ jobs:
     steps:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
           fetch-depth: '0'
 
@@ -39,11 +40,8 @@ jobs:
           aws-region: us-east-2
 
       - name: Install Dependencies
-        run: |
-          yarn install
-          cd infra
-          yarn install
-          cd ../
+        run: yarn install
+
 
       - name: Build
         run: yarn run build
@@ -90,15 +88,6 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-      - name: Infra Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: infra
-          path: |
-            infra
-            !infra/node_modules/**/*
-          retention-days: 1
-
     outputs:
       image_tag: ${{ steps.semver.outputs.new_tag }}
 
@@ -112,10 +101,10 @@ jobs:
       contents: write
 
     steps:
-      - name: Download Infra Artifact
-        uses: actions/download-artifact@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          name: infra
+          fetch-depth: '0'
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -125,12 +114,16 @@ jobs:
           aws-region: us-east-2
 
       - name: Install Dependencies
-        run: yarn install
+        run: |
+          cd infra
+          yarn install
 
-      - name: Deploy (Sandbox)
+      - name: Deploy
         env:
           IMAGE_TAG: ${{needs.ci.outputs.image_tag}}
-        run: yarn run deploy:api -c dockerImageTag=$IMAGE_TAG --require-approval never
+        run: |
+          yarn run deploy:api -c dockerImageTag=$IMAGE_TAG --require-approval never
+          cd ../
 
       - name: Smoke Test
         env:
