@@ -103,7 +103,7 @@ jobs:
       image_tag: ${{ steps.semver.outputs.new_tag }}
 
   cd:
-    name: Deploy
+    name: Deploy (non-prod)
     needs:
       - ci
     runs-on: ubuntu-latest
@@ -131,3 +131,9 @@ jobs:
         env:
           IMAGE_TAG: ${{needs.ci.outputs.image_tag}}
         run: yarn run deploy:api -c dockerImageTag=$IMAGE_TAG --require-approval never
+
+      - name: Smoke Test
+        env:
+          API_BASE_URL: https://api.nest.kasun.clearsigma.com
+          IMAGE_VERSION: ${{needs.ci.outputs.image_tag}}
+        run: yarn run test:smoke
