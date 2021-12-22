@@ -72,6 +72,14 @@ jobs:
           WITH_V: true
           DEFAULT_BUMP: patch
 
+      - name: Udate Version File
+        env:
+          IMAGE_TAG: ${{ steps.semver.outputs.new_tag }}
+        run: |
+          ver_txt=$IMAGE_TAG::date +"%Y-%m-%d %H:%M:%S"
+          echo $ver_txt
+          cat ver_txt > version.txt
+
       - name: Dockerize & Push
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
