@@ -79,7 +79,7 @@ jobs:
           created_at=`date +"%Y-%m-%d %H:%M:%S"`
           ver_txt=$IMAGE_TAG::$created_at
           echo $ver_txt
-          echo ver_txt > version.txt
+          echo $ver_txt > version.txt
 
       - name: Dockerize & Push
         env:
