@@ -39,7 +39,11 @@ jobs:
           aws-region: us-east-2
 
       - name: Install Dependencies
-        run: yarn install
+        run: |
+          yarn install
+          cd infra
+          yarn install
+          cd ../
 
       - name: Build
         run: yarn run build
@@ -66,7 +70,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
+          DEFAULT_BUMP: patch
 
+      - name: Udate Version File
+        env:
+          IMAGE_TAG: ${{ steps.semver.outputs.new_tag }}
+        run: |
+          created_at=`date +"%Y-%m-%d %H:%M:%S"`
+          ver_txt=$IMAGE_TAG::$created_at
+          echo $ver_txt
+          echo $ver_txt > version.txt
 
       - name: Dockerize & Push
         env:
@@ -76,3 +89,10 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+      - name: Deploy (Sandbox)
+        env:
+          IMAGE_TAG: ${{ steps.semver.outputs.new_tag }}
+        run: |
+          cd infra
+          yarn run deploy:api -c dockerImageTag=$IMAGE_TAG --require-approval never
