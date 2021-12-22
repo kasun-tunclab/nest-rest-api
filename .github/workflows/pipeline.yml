@@ -119,6 +119,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          yarn install
           cd infra
           yarn install
 
