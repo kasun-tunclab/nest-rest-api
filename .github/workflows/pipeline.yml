@@ -126,8 +126,8 @@ jobs:
         env:
           IMAGE_TAG: ${{needs.ci.outputs.image_tag}}
         run: |
+          cd infra
           yarn run deploy:api -c dockerImageTag=$IMAGE_TAG --require-approval never
-          cd ../
 
       - name: Smoke Test
         env:
