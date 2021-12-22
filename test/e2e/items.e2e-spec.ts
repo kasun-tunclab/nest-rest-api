@@ -1,7 +1,7 @@
 import {INestApplication} from "@nestjs/common";
 import {Test, TestingModule} from "@nestjs/testing";
 import * as request from "supertest";
-import {ItemsModule} from "../src/items/items.module";
+import {ItemsModule} from "../../src/items/items.module";
 
 describe('Items API (e2e)', () => {
 
