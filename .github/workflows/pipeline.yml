@@ -94,7 +94,10 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: infra
-          path: infra
+          path: |
+            infra
+            !node_modules
+          retention-days: 1
 
     outputs:
       image_tag: ${{ steps.semver.outputs.new_tag }}
