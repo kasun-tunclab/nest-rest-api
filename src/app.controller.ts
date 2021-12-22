@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import {AppService, VersionInfo} from './app.service';
 
 @Controller("v1")
 export class AppController {
@@ -7,7 +7,12 @@ export class AppController {
 
   @Get("/ping")
   ping(): string {
-    return this.appService.getHello();
+    return 'I am alive!';
+  }
+
+  @Get('/version')
+  version(): VersionInfo {
+    return this.appService.getVersion();
   }
 
   // add health checks using  https://docs.nestjs.com/recipes/terminus

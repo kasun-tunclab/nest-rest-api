@@ -4,6 +4,8 @@ WORKDIR /workspace
 
 COPY dist/src bin
 
+COPY version.txt .
+
 COPY node_modules node_modules
 
 RUN ls
