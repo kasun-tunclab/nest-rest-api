@@ -1,7 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
 name: Pipeline
-
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
@@ -16,8 +15,9 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains jobs called "build", "dockerise"
-  build:
+  ci:
     # The type of runner that the job will run on
+    name: Build & Publish
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -39,7 +39,11 @@ jobs:
           aws-region: us-east-2
 
       - name: Install Dependencies
-        run: yarn install
+        run: |
+          yarn install
+          cd infra
+          yarn install
+          cd ../
 
       - name: Build
         run: yarn run build
@@ -66,7 +70,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
+          DEFAULT_BUMP: patch
 
+      - name: Udate Version File
+        env:
+          IMAGE_TAG: ${{ steps.semver.outputs.new_tag }}
+        run: |
+          created_at=`date +"%Y-%m-%d %H:%M:%S"`
+          ver_txt=$IMAGE_TAG::$created_at
+          echo $ver_txt
+          echo $ver_txt > version.txt
 
       - name: Dockerize & Push
         env:
@@ -76,3 +89,39 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+      - name: Infra Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: infra
+          path: infra
+
+    outputs:
+      image_tag: ${{ steps.semver.outputs.new_tag }}
+
+  cd:
+    name: Deploy
+    needs:
+      - ci
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Infra Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: infra
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::102752706570:role/NestRestPipelineRole
+          role-session-name: workflow-session
+          aws-region: us-east-2
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Deploy (Sandbox)
+        env:
+          IMAGE_TAG: ${{needs.ci.outputs.image_tag}}
+        run: yarn run deploy:api -c dockerImageTag=$IMAGE_TAG --require-approval never
