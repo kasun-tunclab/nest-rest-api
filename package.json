@@ -1,10 +1,10 @@
 {
   "name": "nest-rest-api",
   "version": "0.0.1",
-  "description": "",
+  "description": "PoC project to learn nestjs framework and github actions",
   "author": "",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -18,7 +18,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "test:e2e": "jest --config test/e2e/jest-e2e.json",
+    "test:smoke": "jest --config test/smoke/jest-smoke.json",
     "docker:build": "yarn install && yarn prebuild && yarn build"
   },
   "dependencies": {
