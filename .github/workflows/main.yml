@@ -76,7 +76,8 @@ jobs:
         env:
           IMAGE_TAG: ${{ steps.semver.outputs.new_tag }}
         run: |
-          ver_txt=$IMAGE_TAG::date +"%Y-%m-%d %H:%M:%S"
+          created_at=`date +"%Y-%m-%d %H:%M:%S"`
+          ver_txt=$IMAGE_TAG::$created_at
           echo $ver_txt
           cat ver_txt > version.txt
 
